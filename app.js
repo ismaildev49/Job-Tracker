@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require('express')
 const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser')
@@ -15,8 +16,8 @@ app.set('view engine', 'ejs')
 
 
 // Database Connection
-const dbURI = 'mongodb+srv://ismaelbentatou:blabla123@cluster0.pnvb5it.mongodb.net/jobTracker';
-mongoose.connect(dbURI,)
+
+mongoose.connect(process.env.dbURI,)
   .then((result) => app.listen(PORT, (err, data) => {
     console.log('listening to port ' + PORT);
   }))

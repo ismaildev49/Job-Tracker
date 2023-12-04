@@ -5,7 +5,7 @@ module.exports.get = (req, res) => {
     res.render('register')
 }
 //handle errors
-module.exports.handleErrors = (err) => {
+handleErrors = (err) => {
     console.log(err.message, err.code);
     let errors =  { email : '', password : ''}
 
