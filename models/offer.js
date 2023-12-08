@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
 const offerSchema = new mongoose.Schema({
+    user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
     jobTitle : {
       type : String, 
       required : [true, "Please enter a job title"]
@@ -21,4 +22,4 @@ const offerSchema = new mongoose.Schema({
 
 const Offer = mongoose.model('offer', offerSchema) 
 
-module.exports = {Offer, offerSchema}
+module.exports = Offer
