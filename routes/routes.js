@@ -1,5 +1,6 @@
 const {Router} = require('express')
 const router = Router() 
+const {requireAuth} = require('../middleware/authMiddleware')
 
 const dashbordController = require('../controllers/dashbordController')
 const loginController = require('../controllers/loginController')
@@ -24,14 +25,13 @@ router.get('/register', registerController.get);
 router.post('/register', registerController.post);
 
 // Profile
-router.get('/profile/:id', profileController.get);
+router.get('/profile/:id', requireAuth, profileController.get);
 
-router.put('/profile/:id', profileController.put);
+router.put('/profile/:id', requireAuth,  profileController.put);
 
-router.delete('/profile/:id', profileController.delete);
+router.delete('/profile/:id', requireAuth, profileController.delete);
 
-// Dashboard
-router.get('/dashboard/:id', dashbordController.get);
+
 
 // Offer
 router.post('/offer', offerController.post);

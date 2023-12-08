@@ -6,6 +6,7 @@ const routes = require('./routes/routes')
 const app = express()
 const PORT = process.env.PORT || 3001
 const dbURI = process.env.MONGODB_URI || process.env.DB_URI;
+const {requireAuth, checkUser} = require('./middleware/authMiddleware')
 
 // Middleware
 // app.use(express.static('public'));
@@ -31,6 +32,7 @@ mongoose.connect(dbURI)
 
 
 //routes
+app.get('*', checkUser)
 
 app.use(routes)
 

@@ -4,10 +4,10 @@ const bcrypt = require('bcrypt')
 const {offerSchema} = require('./offer')
 
 const userSchema = new mongoose.Schema({
-    firstName: {
-        type : String,
-        required : [true, 'Please enter a first name'], 
-    },
+  firstName: {
+      type : String,
+      required : [true, 'Please enter a first name'], 
+  },
   lastName: {
     type : String,
     required : [true, 'Please enter a last name']
